@@ -55,7 +55,7 @@ class EventListener implements Listener {
 	/**
 	 * @return Main
 	 */
-	public function getPlugin() : Main {
+	public function getPlugin() : \pocketmine\plugin\Plugin {
 		return $this->plugin;
 	}
 
