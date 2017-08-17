@@ -65,8 +65,12 @@ class EventListener implements Listener {
 	 * @param BlockBreakEvent $event
 	 */
 	public function onBreak(BlockBreakEvent $event) {
-		foreach($event->getDrops() as $drop) {
-			$event->getPlayer()->getInventory()->addItem($drop);
+		if(!$event->isCancelled()){
+			foreach($event->getDrops() as $drop) {
+				$event->getPlayer()->getInventory()->addItem($drop);
+			}
+		}else{
+			return false;
 		}
 		$event->setDrops([]);
 	}
